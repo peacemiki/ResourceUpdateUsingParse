@@ -58,7 +58,7 @@ public class ResourceUpdater {
             @Override
             public void done(byte[] bytes, ParseException e) {
                 if(e == null) {
-                    String filepath = Global.instance.getApplicationContext().getFilesDir().getPath() + "/" + parseFile.getName();
+                    String filepath = ResourceContract.ResourceFolderPath + parseFile.getName();
                     File file = new File(filepath);
                     FileUtil.write(file, bytes);
 

@@ -6,6 +6,8 @@ import android.provider.BaseColumns;
 
 import com.parse.ParseObject;
 
+import kr.co.schoolholic.core.Global;
+
 /**
  * Created by kevin on 15. 4. 16..
  */
@@ -14,6 +16,8 @@ public class ResourceContract {
     // To prevent someone from accidentally instantiating the contract class,
     // give it an empty constructor.
     public ResourceContract() {}
+
+    public static final String ResourceFolderPath = Global.instance.getApplicationContext().getFilesDir().getPath() + "/";
 
     /* Inner class that defines the table contents */
     public static class ImageResource implements BaseColumns {

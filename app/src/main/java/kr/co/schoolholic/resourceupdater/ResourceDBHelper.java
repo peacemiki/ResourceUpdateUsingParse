@@ -82,6 +82,28 @@ public class ResourceDBHelper extends SQLiteOpenHelper {
         return c;
     }
 
+    public Cursor get(String nickname) {
+        SQLiteDatabase db = getReadableDatabase();
+
+        // How you want the results sorted in the resulting Cursor
+        String sortOrder = ImageResource.COLUMN_NAME_REVISION + " DESC";
+
+        // Which row to update, based on the nickname
+        String selection = ImageResource.COLUMN_NAME_NICKNAME + " = '" + nickname + "'";
+
+        Cursor c = db.query(
+                ImageResource.TABLE_NAME,  // The table to query
+                ImageResource.projection,       // The columns to return
+                selection,                                // The columns for the WHERE clause
+                null,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                sortOrder                                 // The sort order
+        );
+
+        return c;
+    }
+
     public int update(ContentValues values) {
         SQLiteDatabase db = getReadableDatabase();
 
